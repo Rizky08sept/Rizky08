@@ -641,19 +641,7 @@ if (text.includes("!alay")){
 		conn.sendMessage(id, hasil, MessageType.text)
 	})
 }
-if (text.includes('©nulis')){
-  var teks = text.replace(/©nulis /, '')
-    axios.get('https://bangandre.herokuapp.com/nulis?teks='+teks)
-    .then((res) => {
-      imageToBase64(res.data.result)
-        .then(
-          (ress) => {
-            conn.sendMessage(id, '[ WAIT ] Sedang di proses⏳ silahkan tunggu sebentar', MessageTyp.text)
-            var buf = Buffer.from(ress, 'base64')
-            conn.sendMessage(id, buf, MessageType.image)
-        })
-    })
-}
+
 
 
 
