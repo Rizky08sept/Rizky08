@@ -654,6 +654,13 @@ if (text.includes('!nulis')){
         })
     })
 }
+if (text.includes("#wiki")){
+const teks = text.replace(/#wiki /, "")
+axios.get(`https://mhankbarbar.herokuapp.com/api/wiki?q=${teks}&lang=id&apiKey=zFuV88pxcIiCWuYlwg57`).then((res) => {
+    let hasil = `Menurut Wikipedia:\n\n${res.data.result}`;
+    conn.sendMessage(id, hasil ,MessageType.text);
+})
+}
 
 
 
