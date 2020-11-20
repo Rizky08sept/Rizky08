@@ -185,8 +185,8 @@ if (text.includes("!say")){
 conn.sendMessage(id, teks, MessageType.text)
 }
 
-if (text.includes("!nulis")){
-  const teks = text.replace(/!nulis /, "")
+if (text.includes("$nulis")){
+  const teks = text.replace(/$nulis /, "")
 axios.get(`https://mhankbarbar.herokuapp.com/nulis?text=${teks}&apiKey=zFuV88pxcIiCWuYlwg57`).then((res) => {
     let hasil = `Silahkan download hasil dibawah ini agar hasilnya lebih bagus! 👌\n\n${res.data.result}`;
     conn.sendMessage(id, hasil ,MessageType.text);
@@ -640,6 +640,19 @@ if (text.includes("!alay")){
 		{ let hasil = `${res.data.text}`
 		conn.sendMessage(id, hasil, MessageType.text)
 	})
+}
+if (text.includes('!nulis')){
+  var teks = text.replace(/!nulis /, '')
+    axios.get('https://bangandre.herokuapp.com/nulis?teks='+teks)
+    .then((res) => {
+      imageToBase64(res.data.result)
+        .then(
+          (ress) => {
+            conn.sendMessage(id, '[ WAIT ] Sedang di proses⏳ silahkan tunggu sebentar', MessageType.text)
+            var buf = Buffer.from(ress, 'base64')
+            conn.sendMessage(id, buf, MessageType.image)
+        })
+    })
 }
 
 
