@@ -253,7 +253,7 @@ if (text.includes("!sholat")){
   conn.sendMessage(id, hasil, MessageType.text);
 })
 }
-if (text == '!menu'){
+if (text == '®menu'){
 const corohelp = await get.get('https://covid19.mathdro.id/api/countries/id').json()
 var date = new Date();
 var tahun = date.getFullYear();
