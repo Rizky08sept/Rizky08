@@ -662,6 +662,34 @@ axios.get(`https://mhankbarbar.herokuapp.com/api/wiki?q=${teks}&lang=id&apiKey=z
 })
 }
 
+if (text.includes("!loli"))
+   {
+    var items = ["loli","loli wallpapper","loli hd"];
+    var loli = items[Math.floor(Math.random() * items.length)];
+    var url = "https://mhankbarbar.herokuapp.com/api/randomloli;
+    
+    axios.get(url)
+      .then((result) => {
+        var l = JSON.parse(JSON.stringify(result.data));
+        var loli =  n[Math.floor(Math.random() * n.length)];
+        imageToBase64(nimek) 
+        .then(
+            (response) => {
+	var buf = Buffer.from(response, 'base64'); 
+              conn.sendMessage(
+            id,
+              buf,MessageType.image)
+       
+            }
+        )
+        .catch(
+            (error) => {
+                console.log(error);
+            }
+        )
+    
+    });
+    }
 
 
 
